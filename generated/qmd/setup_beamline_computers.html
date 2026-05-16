@@ -472,7 +472,7 @@ ul.task-list li input[type="checkbox"] {
 <p>Open terminal app by going to Applications and clicking on the terminal icon. Can open multiple tabs using File –&gt; New Tab. Can right click on tabs to rename them as Phoebus, PyDM, Bluesky, etc.</p>
 <section id="start-queueserver-and-nbs-gui" class="level2">
 <h2 class="anchored" data-anchor-id="start-queueserver-and-nbs-gui">Start QueueServer and nbs-gui</h2>
-<p>First-time setup (TODO: needs refining):</p>
+<p>First-time setup (TODO: needs refining and correcting):</p>
 <ul>
 <li>First, <code>git pull</code> the contents of <code>livetable</code>, <code>nbs-bl</code>, <code>nbs-core</code>, <code>nbs-gui</code>, and <code>nbs-viewer</code> located in <code>/home/xf07id1/xraygui</code> to ensure the most up-to-date versions are used.</li>
 <li>Then <code>pip install --no-build-isolation -e</code> all of these packages for first time setup. This can be done in the terminal or in VSCode.</li>
@@ -550,6 +550,7 @@ bsui</code></pre>
 <p>“local” refers to the PyDM setup that is local to the environment in which it was created. Open the GUI by running:</p>
 <pre><code>pydm /nsls2/data/sst/legacy/RSoXS/.pydm/.pydm/RSoXS_UIS/RSoXSmain6.ui</code></pre>
 <p><img src="../../assets/images/PyDM.png" class="img-fluid"></p>
+<p>Click on Valve Control to open a larger window showing the gate valves and shutters and can be used to open/close them.</p>
 </section>
 <section id="beamline-staff-or-users-can-also-login-into-terminal-app" class="level2">
 <h2 class="anchored" data-anchor-id="beamline-staff-or-users-can-also-login-into-terminal-app">Beamline staff or users can also login into terminal app</h2>
@@ -571,12 +572,12 @@ bsui</code></pre>
 <pre><code>dzdo shutdown now</code></pre>
 <p>The command <code>shutdown --n</code> also works. To restart, run:</p>
 <pre><code>dzdo reboot</code></pre>
+<p><br><br></p>
 </section>
 </section>
 <section id="rsoxs-analysis-computer" class="level1">
 <h1>RSoXS Analysis computer</h1>
 <p>This computer is used to prepare spreadsheets and analyze incoming data.</p>
-<p>Feel free to import these bookmarked resources into a chrome window for easy access during a beam time: https://github.com/NSLS-II-SST/rsoxs_workflow/blob/20250415_Draft/examples/bookmarks_6_3_25.html</p>
 <section id="login" class="level2">
 <h2 class="anchored" data-anchor-id="login">Login</h2>
 <p>Username: RSoXS User</p>
