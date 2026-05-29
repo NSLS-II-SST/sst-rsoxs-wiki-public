@@ -81,22 +81,14 @@
     "href": "generated/qmd/commissioning_records.html",
     "title": "Commissioning records",
     "section": "",
-    "text": "Use this as the top-level index for commissioning logs.",
-    "crumbs": [
-      "Commissioning records ('Old socks')",
-      "Commissioning records"
-    ]
+    "text": "Use this as the top-level index for commissioning logs."
   },
   {
     "objectID": "generated/qmd/commissioning_records.html#years",
     "href": "generated/qmd/commissioning_records.html#years",
     "title": "Commissioning records",
     "section": "Years",
-    "text": "Years\n\n2026 commissioning records",
-    "crumbs": [
-      "Commissioning records ('Old socks')",
-      "Commissioning records"
-    ]
+    "text": "Years\n\n2026 commissioning records"
   },
   {
     "objectID": "generated/qmd/beam_time_startup.html",
@@ -113,8 +105,6 @@
     "text": "This page groups date-level records for 2026.",
     "crumbs": [
       "Commissioning records ('Old socks')",
-      "Older",
-      "2026",
       "2026 commissioning records"
     ]
   },
@@ -126,8 +116,6 @@
     "text": "Entries\n\n2026-05-27\n2026-05-19",
     "crumbs": [
       "Commissioning records ('Old socks')",
-      "Older",
-      "2026",
       "2026 commissioning records"
     ]
   },
@@ -158,6 +146,18 @@
     "crumbs": [
       "General",
       "Home"
+    ]
+  },
+  {
+    "objectID": "generated/qmd/2025_records.html",
+    "href": "generated/qmd/2025_records.html",
+    "title": "2025 commissioning records",
+    "section": "",
+    "text": "See 2025 commissionng records at https://wiki-nsls2.bnl.gov/beamline7ID1/index.php?title=Commissioning_records:_2025",
+    "crumbs": [
+      "Commissioning records ('Old socks')",
+      "Older",
+      "2025 commissioning records"
     ]
   },
   {
