@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Commissioning records – SST RSoXS Wiki</title>
+<title>Beam time startup – SST RSoXS Wiki</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -23,6 +23,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -33,8 +68,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../generated/qmd/2026_records.html" rel="next">
-<link href="../../generated/qmd/greateyes_ccd_camera.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -260,7 +293,9 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../generated/qmd/commissioning_records.html">Commissioning records (‘Old socks’)</a></li><li class="breadcrumb-item"><a href="../../generated/qmd/commissioning_records.html">Commissioning records</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
+      SST RSoXS Wiki
+      </li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -389,16 +424,16 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
  <span class="menu-text">Commissioning records (‘Old socks’)</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../generated/qmd/commissioning_records.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../generated/qmd/commissioning_records.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Commissioning records</span></a>
   </div>
 </li>
@@ -442,7 +477,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#years" id="toc-years" class="nav-link active" data-scroll-target="#years">Years</a></li>
+  <li><a href="#ensure-rsoxs-is-the-active-endstation" id="toc-ensure-rsoxs-is-the-active-endstation" class="nav-link active" data-scroll-target="#ensure-rsoxs-is-the-active-endstation">Ensure RSoXS is the active endstation</a></li>
+  <li><a href="#align-mirrors-and-detectors-for-maximum-flux" id="toc-align-mirrors-and-detectors-for-maximum-flux" class="nav-link" data-scroll-target="#align-mirrors-and-detectors-for-maximum-flux">Align mirrors and detectors for maximum flux</a></li>
   </ul>
 </nav>
     </div>
@@ -450,9 +486,9 @@ ul.task-list li input[type="checkbox"] {
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../generated/qmd/commissioning_records.html">Commissioning records (‘Old socks’)</a></li><li class="breadcrumb-item"><a href="../../generated/qmd/commissioning_records.html">Commissioning records</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Commissioning records</h1>
+<h1 class="title">Beam time startup</h1>
 </div>
 
 
@@ -469,12 +505,67 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Use this as the top-level index for commissioning logs.</p>
-<section id="years" class="level2">
-<h2 class="anchored" data-anchor-id="years">Years</h2>
+<pre class="quarto"><code></code></pre>
+<p>Follow these instructions for instrument calibrations and optimizations when first getting beam.</p>
+<p>If not done by now, have users authenticate into the correct proposal directory.</p>
+<p>At this time, it can be helpful to shut off the Greateyes CCD camera for 5 min and then turn the CCD camera back on to reduce the occurrence of server disconnects.</p>
+<section id="ensure-rsoxs-is-the-active-endstation" class="level1">
+<h1>Ensure RSoXS is the active endstation</h1>
 <ul>
-<li><a href="../../generated/qmd/2026_records.html">2026 commissioning records</a></li>
+<li><p>Obtain confirmation from other SST scientists, especially prior users, to ensure RSoXS can take control.</p></li>
+<li><p>Go to the “SST Launch” tab on phoebus and choose “Endstation Selected: RSoXS”.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../../assets/images/EndstationSelectedRSoXS_PGMNotMoving.png" class="img-fluid figure-img"></p>
+<figcaption>Choose “Endstation Selected: RSoXS” (green box) and ensure that there are no energy movements (orange box)</figcaption>
+</figure>
+</div></li>
+<li><p>Go to the “PGM” tab on phoebus and check that the “Energy Move Status” shows Ready (does not show “Moving”) and that the “Energy Setpoint” values are not changing. Also, check that all “Individual Drives” are not disabled; if they are, go to the individual “Motor” tabs and click “Enable”.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../../assets/images/PGMEnabled.png" class="img-fluid figure-img"></p>
+<figcaption>Enable PGM motors if needed.</figcaption>
+</figure>
+</div></li>
+<li><p>Ensure oxygen bleed is turned on for M1, M2 (Mono:PGM), M3 (FS:7), and M4. DO NOT change to the RSoXS grating without ensuring sufficient oxygen pressure. On phoebus, go to the “07ID M Vacuum” tab, and scroll to the right. The readouts for these mirrors should be above 1e-8 Torr. These pressures also can be viewed in the pressure gauge racks downstream of the hutch.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../../assets/images/OxygenLeak.png" class="img-fluid figure-img"></p>
+<figcaption>Beamline pressures in phoebus. Blue boxes: pressures indicate oxygen leak is running.</figcaption>
+</figure>
+</div>
+<p>It is especially important to check at the beginning of a cycle when the oxygen flow has been started recently, as the levels can be less stable. If the levels need to be adjusted, it is not required to wait for any equilibration period. The RSoXS grating can be used as soon as the pressures are adequate. The “07ID M Vacuum” tab can be found by going to the “SST Launch” main page and navigating to the “Vacuum” –&gt; “M” menu. The readings are listed from downstream (left) to upstream (right). The green/red square next to the IP:1 readouts indicate whether the ion pump is on/off. The TCG (thermocouple gauge) is used for higher pressure readings. The CCG (cold cathode gauge, ion gauge) is used for very low pressure readings under typical ultrahigh vacuum operations. The IP:1 (indirect pressure reading) is based on the ion current reading in the ion pump and should be similar to the CCG reading.</p></li>
+<li><p>Load the grating (PGM) which will be used for the measurements. Usually, it is the RSoXS 250 variable-line-spacing grating.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>RE(grating_to_rsoxs())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>On phoebus, PGM should show up as “RSoXS 250 l/mm” with CFF = 1.45 along with gold mirror (M2) as either Gold #1 or Gold#2. If it does not move for a long time, PGM motors may need to be enabled again in phoebus. Note, RE stands for “run engine”. It is often used to orchestrate motor movements and other physical hardware on the beamline. Anytime the grating is changed, the energy will need to be newly calibrated, as the translation does not precisely land at the correct calibration.</p></li>
+<li><p>Before setting a clear beam pathway to the RSoXS chamber, ensure that the components within the RSoXS chamber are withdrawn.</p>
+<ul>
+<li>E.g., Detector cameras should be withdrawn, as direct beam on the camera can damage the sensor.</li>
+<li>E.g., Samples should be out of the beam path, as unnecessary exposure can damage samples.</li>
+</ul></li>
+<li><p>Open all upstream gate valves and shutters in the beamline other than the Fast Shutter. Verify in the RSoXS Vacuum Monitor - PyDM that there is a clear path from the source to the RSoXS chamber. If planning to use the downstream diagnostic module 7 (DM7) components (e.g., large area photodiode, fluorescence screen), also open PSH7.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../../assets/images/RSoXSClearBeamPathway.png" class="img-fluid figure-img"></p>
+<figcaption>Purple box: The gate valves and shutters that need to be open (green) for the a clear beam pathway into the RSoXS chamber.</figcaption>
+</figure>
+</div></li>
 </ul>
+<p><br><br></p>
+</section>
+<section id="align-mirrors-and-detectors-for-maximum-flux" class="level1">
+<h1>Align mirrors and detectors for maximum flux</h1>
+<p>An exhaustive beam alignment protocol is available in the staff resources. Below are steps to make quick and minor adjustments to get sufficiently high flux for measurements for routine beam times.</p>
+<ul>
+<li><p>Note the current EPU front-end slit positions (on Phoebus) and mirror positions using the function below: <code>view_positions("MirrorConfiguration_RSoXS")</code></p></li>
+<li><p>Set the EPU front-end slit positions (on Phoebus) and mirror positions to those used for RSoXS. Run <code>view_positions</code> again to ensure the desired positions have been reached. <code>RE(load_configuration("MirrorConfiguration_RSoXS"))</code></p></li>
+<li><p>Load one of the NEXAFS configurations, such as: <code>RE(load_configuration("WAXSNEXAFS"))</code></p></li>
+<li><p>If loading any non-standard configuration, ensure that the Slit 1 horizontal aperture is sufficiently narrow. Ensure that the beamstop moves into position (e.g., WAXS Beamstop ~71 mm in PyDM). For example, ampfault errors may need to be cleared before the configuration is properly loaded.</p></li>
+<li><p>In Bluesky, set the energy to 270 eV, as this energy is commonly used for calibration, and expected flux values at this energy are better known and documented. <code>e 270</code></p></li>
+<li><p>Check that there is flux on Izero mesh. Close and open the PSH10 shutter, and look at the RSoXS archiver live plot on phoebus. The Izero signal should go down and then up. If not, then beamline alignment is necessary. Prior set of alignment parameters can be referenced in the commissioning records.</p></li>
+<li><p>Open the fast shutter and check that there is some flux on the beamstop diode. If not, the beamstop diode position needs to be adjusted. First, try using the motor to move the beamstop in and out while monitoring the phoebus live plot. Occasionally, the manual port aligner (three set of nuts on the beamstop assembly exterior) may need to be used to adjust other axes. Generally a quarter turn of one of the alignment nuts is more than enough.</p></li>
+</ul>
+<pre class="quarto"><code></code></pre>
 
 
 </section>
@@ -893,18 +984,6 @@ ul.task-list li input[type="checkbox"] {
     }
   });
   </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="../../generated/qmd/greateyes_ccd_camera.html" class="pagination-link" aria-label="Greateyes CCD camera">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Greateyes CCD camera</span>
-      </a>          
-  </div>
-  <div class="nav-page nav-page-next">
-      <a href="../../generated/qmd/2026_records.html" class="pagination-link" aria-label="2026 commissioning records">
-        <span class="nav-page-text">2026 commissioning records</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
-  </div>
-</nav>
 </div> <!-- /content -->
 
 
