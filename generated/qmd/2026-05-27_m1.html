@@ -431,9 +431,10 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#m1-ion-pump-failure" id="toc-m1-ion-pump-failure" class="nav-link active" data-scroll-target="#m1-ion-pump-failure">M1 ion pump failure</a>
+  <li><a href="#m1-tank-leak" id="toc-m1-tank-leak" class="nav-link active" data-scroll-target="#m1-tank-leak">M1 tank leak</a>
   <ul class="collapse">
   <li><a href="#leak-testing" id="toc-leak-testing" class="nav-link" data-scroll-target="#leak-testing">Leak testing</a></li>
+  <li><a href="#ion-pump-testing" id="toc-ion-pump-testing" class="nav-link" data-scroll-target="#ion-pump-testing">Ion pump testing</a></li>
   <li><a href="#next-steps" id="toc-next-steps" class="nav-link" data-scroll-target="#next-steps">Next steps</a></li>
   </ul></li>
   </ul>
@@ -462,8 +463,8 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="m1-ion-pump-failure" class="level1">
-<h1>M1 ion pump failure</h1>
+<section id="m1-tank-leak" class="level1">
+<h1>M1 tank leak</h1>
 <pre class="quarto"><code></code></pre>
 <p>Starting at 2:00 am, there was a sudden rise in the pressure of the mirror 1 (M1) tank from 2e-7 Torr to as high as 7.4e-1 Torr. As a result, the ion pump failed, GV1 and GV2 closed, and beam is not available for both SST-1 and SST-2, as the both beam paths pass through the M1 tank.</p>
 <p><img src="../../assets/images/2026-05-27_m1_pressure.png" class="img-fluid"></p>
@@ -473,25 +474,32 @@ ul.task-list li input[type="checkbox"] {
 <p><br></p>
 <p>The cooling lines were investigated. There is a small port on the downstream side of the M1 tank, and this port is used for the inlet cooling line air guard. The outlet port is located on the bottom upstream side. Water was not seen actively flowing out of a hose at the inlet port, but after inserting a napking into the port, the napkin came out damp (~10 mL water).</p>
 <p>The cooling lines were blown dry.</p>
-<p>On 2026-05-28 morning, a turbo cart was attached to the inlet port in addition to the turbo cart that is directly connected to UHV. This brought the tank pressure to ~1e-5 Torr and suggests that there is a leak from the air guard to the UHV region.</p>
+<p>On 2026-05-28 morning, a turbo cart was attached to the inlet port in addition to the turbo cart that is directly connected to UHV. This brought the tank pressure to ~1e-5 Torr (and lower overnight) and suggests that there is a leak from the cooling line, gasket connecting cooling line to the mirror, and/or the mirror into the UHV region.</p>
 <p><br></p>
-<p>The pressure inside the cooling lines also was investigated, but it remained at atmospheric pressure regardless of whether or not the air guard port was being pumped.</p>
+<p>The pressure inside the cooling lines also was investigated, but it remained at atmospheric pressure regardless of whether or not the air guard port was being pumped. This narrows the leak to the gasket or the mirror itself.</p>
+<pre class="quarto"><code></code></pre>
+<p>For reference, a similar issue had occurred recently at the CSX beamline. In this case, water leaked at the copper gasket that directly interfaces between the water hose and the mirror. As a result, the gasket corroded and deposited contamination throughout the cooling hose and knife edge.</p>
+<p>At SST-1, the gaskets and other hardware are made from stainless steel, and DI water is used for cooling. These should minimize corrosion and other contamination. The state of these pieces of hardware will be investigated when the M1 tank is opened.</p>
 <p><br></p>
-<p>It is unclear if water is directly leaking from the air guard to the UHV chamber or if it is leaking via the M1 mirror (e.g., the cooling lines on the surface of the mirror).</p>
+<p>To troubleshoot further, the M1 tank must be opened. The viewports to the tank are small and discolored from radiation, so it is not easy to look inside.</p>
+<p><br><br></p>
+</section>
+<section id="ion-pump-testing" class="level2">
+<h2 class="anchored" data-anchor-id="ion-pump-testing">Ion pump testing</h2>
+<p>With the M1 tank pumped to ~3.9e-6 Torr by 2026-05-29 morning, it was attempted to turn on the ion pump. However, the pressure quickly rose into the e-4’s/e-3’s, so the ion pump was immediately turned off.</p>
+<p><br></p>
+<p>The M1 tank will be pumped down using the turbo carts over the weekend, and it will be attempted again to turn on the ion pump during the next week.</p>
+<p>The M1 ion pump is located in the center of a hexapod assembly that is used to move the M1 positions. Thus, pump repair/replacement would require the entire hexapod assembly to be removed. By testing the ion pump sooner, any repairs can be coordinated early on.</p>
+<p><img src="../../assets/images/2026-05-27_m1_ion_pump_hexapod.jpg" class="img-fluid"></p>
 <p><br><br><br><br></p>
 </section>
 <section id="next-steps" class="level2">
 <h2 class="anchored" data-anchor-id="next-steps">Next steps</h2>
-<pre class="quarto"><code></code></pre>
-<p>After the M1 chamber is brought to sufficient vacuum, turn on the ion pump to check that it works.</p>
-<p>The M1 ion pump is located in the center of a hexapod assembly that is used to move the M1 positions. Thus, pump repair/replacement would require the entire hexapod assembly to be removed. By testing the ion pump sooner, any repairs can be coordinated early on.</p>
-<p><img src="../../assets/images/2026-05-27_m1_ion_pump_hexapod.jpg" class="img-fluid"></p>
-<p><br><br></p>
-<p>Open the M1 tank and investigate if the mirrors are intact.</p>
-<p>Also investigate any further damages inside the chamber, as the viewport to this chamber is discolored due to radiation, and it is not easy to look inside.</p>
-<p><br><br></p>
-<p>For reference, a similar issue had occurred at CSX. In this case, water leaked at the copper gasket that directly itnerfaces between the water hose and the mirror. As a result, the gasket corroded and deposited contamination throughout the cooling hose and knife edge.</p>
-<p>At SST-1, the gaskets and other hardware are made from stainless steel, and DI water is used for cooling. These should minimize corrosion and other contamination. The state of these pieces of hardware will be investigated when the M1 tank is opened.</p>
+<p>After checking the state of the ion pump, the M1 tank will be vented and opened. The mirror and the interior of the chamber will be inspected visually for obvious leaks and signs of damage. The leak will be pinpointed further (e.g., on the cooling line gasket and on the mirror itself)</p>
+<p><br></p>
+<p>The M1 mirror may be removed and inspected further by the mirror group.</p>
+<p><br></p>
+<p>Depending on the diagnosis, the M1 tank may be sealed, pumped down, and baked out during the shorter term to allow SST-2 to access beam.</p>
 
 
 </section>
