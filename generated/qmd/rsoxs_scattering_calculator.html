@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Setup beamline computers and software – SST RSoXS Wiki</title>
+<title>RSoXS Scattering Calculator – SST RSoXS Wiki</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -33,8 +33,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../generated/qmd/sample_preparation_at_beamline.html" rel="next">
-<link href="../../generated/qmd/access_facilities.html" rel="prev">
+<link href="../../generated/qmd/codebases_software_workflow.html" rel="next">
+<link href="../../generated/qmd/vent_pump_load_lock.html" rel="prev">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -77,6 +77,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -260,7 +289,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../generated/qmd/new_prospective_users.html">User guide (‘Our socks’)</a></li><li class="breadcrumb-item"><a href="../../generated/qmd/setup_beamline_computers.html">Setup beamline computers and software</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../generated/qmd/rsoxs_scattering_calculator.html">Tools</a></li><li class="breadcrumb-item"><a href="../../generated/qmd/rsoxs_scattering_calculator.html">RSoXS Scattering Calculator</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -313,13 +342,13 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
  <span class="menu-text">User guide (‘Our socks’)</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../generated/qmd/new_prospective_users.html" class="sidebar-item-text sidebar-link">
@@ -346,7 +375,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../generated/qmd/setup_beamline_computers.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../generated/qmd/setup_beamline_computers.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Setup beamline computers and software</span></a>
   </div>
 </li>
@@ -366,16 +395,16 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
  <span class="menu-text">Tools</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../generated/qmd/rsoxs_scattering_calculator.html" class="sidebar-item-text sidebar-link">
+  <a href="../../generated/qmd/rsoxs_scattering_calculator.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">RSoXS Scattering Calculator</span></a>
   </div>
 </li>
@@ -454,26 +483,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#rsoxs-control-computer-xf07id-ws24" id="toc-rsoxs-control-computer-xf07id-ws24" class="nav-link active" data-scroll-target="#rsoxs-control-computer-xf07id-ws24">RSoXS Control computer (xf07id-ws24)</a>
-  <ul class="collapse">
-  <li><a href="#start-queueserver-and-nbs-gui" id="toc-start-queueserver-and-nbs-gui" class="nav-link" data-scroll-target="#start-queueserver-and-nbs-gui">Start QueueServer and nbs-gui</a>
-  <ul class="collapse">
-  <li><a href="#fallback-start-bluesky-in-a-terminal" id="toc-fallback-start-bluesky-in-a-terminal" class="nav-link" data-scroll-target="#fallback-start-bluesky-in-a-terminal">(fallback) Start Bluesky in a terminal</a></li>
-  </ul></li>
-  <li><a href="#start-phoebus" id="toc-start-phoebus" class="nav-link" data-scroll-target="#start-phoebus">Start phoebus</a></li>
-  <li><a href="#start-pydm" id="toc-start-pydm" class="nav-link" data-scroll-target="#start-pydm">Start PyDM</a></li>
-  <li><a href="#beamline-staff-or-users-can-also-login-into-terminal-app" id="toc-beamline-staff-or-users-can-also-login-into-terminal-app" class="nav-link" data-scroll-target="#beamline-staff-or-users-can-also-login-into-terminal-app">Beamline staff or users can also login into terminal app</a></li>
-  <li><a href="#managing-user-access-to-guacamole-etc." id="toc-managing-user-access-to-guacamole-etc." class="nav-link" data-scroll-target="#managing-user-access-to-guacamole-etc.">Managing user access to Guacamole, etc.</a></li>
-  <li><a href="#shutting-down-or-restarting-the-computer-if-needed" id="toc-shutting-down-or-restarting-the-computer-if-needed" class="nav-link" data-scroll-target="#shutting-down-or-restarting-the-computer-if-needed">Shutting down or restarting the computer (if needed)</a></li>
-  </ul></li>
-  <li><a href="#rsoxs-analysis-computer" id="toc-rsoxs-analysis-computer" class="nav-link" data-scroll-target="#rsoxs-analysis-computer">RSoXS Analysis computer</a>
-  <ul class="collapse">
-  <li><a href="#login" id="toc-login" class="nav-link" data-scroll-target="#login">Login</a></li>
-  <li><a href="#file-directory-one-time-setup" id="toc-file-directory-one-time-setup" class="nav-link" data-scroll-target="#file-directory-one-time-setup">File directory (one-time setup)</a></li>
-  <li><a href="#set-up-internet-browser" id="toc-set-up-internet-browser" class="nav-link" data-scroll-target="#set-up-internet-browser">Set up internet browser</a></li>
-  <li><a href="#open-nbs-viewer" id="toc-open-nbs-viewer" class="nav-link" data-scroll-target="#open-nbs-viewer">Open nbs-viewer</a></li>
-  <li><a href="#no-longer-used-open-rsoxs-tiled-in-igor" id="toc-no-longer-used-open-rsoxs-tiled-in-igor" class="nav-link" data-scroll-target="#no-longer-used-open-rsoxs-tiled-in-igor">(no longer used) Open RSoXS Tiled in Igor</a></li>
-  </ul></li>
+  <li><a href="#how-this-calculator-works-equations-geometry" id="toc-how-this-calculator-works-equations-geometry" class="nav-link active" data-scroll-target="#how-this-calculator-works-equations-geometry">How This Calculator Works (Equations + Geometry)</a></li>
   </ul>
 </nav>
     </div>
@@ -481,9 +491,9 @@ ul.task-list li input[type="checkbox"] {
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../generated/qmd/new_prospective_users.html">User guide (‘Our socks’)</a></li><li class="breadcrumb-item"><a href="../../generated/qmd/setup_beamline_computers.html">Setup beamline computers and software</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../generated/qmd/rsoxs_scattering_calculator.html">Tools</a></li><li class="breadcrumb-item"><a href="../../generated/qmd/rsoxs_scattering_calculator.html">RSoXS Scattering Calculator</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Setup beamline computers and software</h1>
+<h1 class="title">RSoXS Scattering Calculator</h1>
 </div>
 
 
@@ -500,165 +510,459 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Complete these steps after your beam time has been scheduled and before your scheduled beam time days.</p>
-<section id="rsoxs-control-computer-xf07id-ws24" class="level1">
-<h1>RSoXS Control computer (xf07id-ws24)</h1>
-<p>This computer is used to control beamline hardware, set up and align samples, and run scans. Navigate across screens using ctrl + alt + up/down arrow</p>
-<p>Open terminal app by going to Applications and clicking on the terminal icon. Can open multiple tabs using File –&gt; New Tab. Can right click on tabs to rename them as Phoebus, PyDM, Bluesky, etc.</p>
-<section id="start-queueserver-and-nbs-gui" class="level2">
-<h2 class="anchored" data-anchor-id="start-queueserver-and-nbs-gui">Start QueueServer and nbs-gui</h2>
-<p>First-time setup (TODO: needs refining and correcting):</p>
+<p>Assumptions used in defaults:</p>
 <ul>
-<li>First, <code>git pull</code> the contents of <code>livetable</code>, <code>nbs-bl</code>, <code>nbs-core</code>, <code>nbs-gui</code>, and <code>nbs-viewer</code> located in <code>/home/xf07id1/xraygui</code> to ensure the most up-to-date versions are used.</li>
-<li>Then <code>pip install --no-build-isolation -e</code> all of these packages for first time setup. This can be done in the terminal or in VSCode.</li>
-<li>Then run nbs-viewer (this may no longer be necessary?).</li>
+<li>Detector size: 61.7 mm (width) x 61.4 mm (height)</li>
+<li>Default sample-to-detector distance: 30 mm</li>
+<li>Beam energy defaults to 291.65 eV (carbon edge calibration point)</li>
+<li>Top-down coordinates: beam is left to right (+z), outboard is +x (top of sketch), inboard is -x (bottom of sketch)</li>
+<li>Detector translation path is approximated as 45 degrees inboard and downstream, with detector center crossing the beam axis near z = 30 mm</li>
+<li>Travel window defaults to z = 10 mm to 120 mm</li>
 </ul>
-<p><br><br></p>
-<p>Activate the appropriate environment if necessary (e.g., <code>conda activate 2024-2.3-py311-tiled</code>).</p>
-<p><br><br></p>
-<ul>
-<li><p>In a new terminal tab, run <code>qsstart</code> to start QueueServer and leave this open. The following output is an example that indicates that QueueServer has fully started.</p>
-<pre><code>[I 2025-08-29 17:34:24,894 bluesky_queueserver.manager.manager] Starting ZMQ server at 'tcp://*:60615'
-[I 2025-08-29 17:34:24,894 bluesky_queueserver.manager.manager] ZMQ control channels: encryption disabled
-[I 2025-08-29 17:34:24,902 bluesky_queueserver.manager.manager] Starting RE Manager process
-[I 2025-08-29 17:34:24,926 bluesky_queueserver.manager.manager] Loading the lists of allowed plans and devices ...
-[I 2025-08-29 17:34:25,703 bluesky_queueserver.manager.manager] Starting ZeroMQ server ...
-[I 2025-08-29 17:34:25,703 bluesky_queueserver.manager.manager] ZeroMQ server is waiting on tcp://*:60615</code></pre></li>
-<li><p>In a new terminal tab, run <code>guistart</code> to open the beamline operation GUI. Alternatively, it can be opened by running <code>nbs-gui --profile collection</code>.</p></li>
-<li><p>After the GUI opens, connect to QueueServer by going to the Queue Control tab on the upper left-hand side, and clicking Connect. This requires <code>qsstart</code> to be run already.</p></li>
-<li><p>Start the beamline operation software by clicking Open. If any updates are made to the code, hit Close then Open in the Queue Server box on the GUI to update new code. To check that functions have updated, the IPython Kernel can be used to type the function name followed by ?? to check that updates are visible.</p></li>
-<li><p>In a new terminal tab, run <code>viewerstart</code> to open the live data viewer.</p></li>
-</ul>
-<p>Note that the GUI has some additional coding constraints than does running Bluesky in the terminal, so certain errors may appear while attempting to open the GUI even if Bluesky were to open in the terminal with no errors.</p>
-<section id="fallback-start-bluesky-in-a-terminal" class="level3">
-<h3 class="anchored" data-anchor-id="fallback-start-bluesky-in-a-terminal">(fallback) Start Bluesky in a terminal</h3>
-<p>QueueServer and nbs-gui should be the default applications used for beamline operation. However, if there are any issues, the beamline operation software also can be run in a terminal.</p>
-<p>Before starting, the beamline scientist should sync/pull the latest version of the beamline codebase onto the workstation used for beamline operation.</p>
-<p>In a new terminal tab, run:</p>
-<pre><code>bsui</code></pre>
-<p>After Bluesky is loaded and is ready to accept a command, the beamline status will be printed out (the current metadata loaded up) and the command input line will appear green with the path to the current data folder. (add instructions for reverting to previous versions if there is trouble)</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="../../assets/images/BlueskyRunning.png" class="img-fluid figure-img"></p>
-<figcaption>Input line for Bluesky</figcaption>
-</figure>
+<p>The calculator fills inferred values, highlights them, prints a detailed summary, and updates a top-down geometry sketch.</p>
+<section id="how-this-calculator-works-equations-geometry" class="level2">
+<h2 class="anchored" data-anchor-id="how-this-calculator-works-equations-geometry">How This Calculator Works (Equations + Geometry)</h2>
+<p>The calculator below uses the following equations.</p>
+<ol type="1">
+<li><p>Energy to wavelength: <span class="math display">\[\lambda = \frac{hc}{E} = \frac{1239.841984\,\mathrm{eV\cdot nm}}{E\,(\mathrm{eV})}\]</span></p></li>
+<li><p>Real-space to scattering vector: <span class="math display">\[q\,(\mathrm{nm}^{-1}) = \frac{2\pi}{d\,(\mathrm{nm})}\]</span></p></li>
+<li><p>Scattering vector from angle: <span class="math display">\[q = \frac{4\pi}{\lambda}\sin\theta\]</span> where <span class="math inline">\(\theta\)</span> is half of the total scattering angle <span class="math inline">\(2\theta\)</span>.</p></li>
+<li><p>Detector-angle relation for a radius <span class="math inline">\(r\)</span> at sample-to-detector distance <span class="math inline">\(z\)</span>: <span class="math display">\[2\theta = \arctan\left(\frac{r}{z}\right)\]</span></p></li>
+<li><p>Inverse relation used to place a target <span class="math inline">\(q\)</span> on the detector: <span class="math display">\[r = z\tan\left(2\arcsin\left(\frac{q\lambda}{4\pi}\right)\right)\]</span></p></li>
+</ol>
+<p>In this page, the detector center shifts with distance using the same 45 degree inboard/downstream approximation used elsewhere in this wiki. The beamstop sets the lowest measurable radius around the direct beam, and detector edges set the highest measurable radius.</p>
+<style>
+#rsoxs-calculator {
+  --ink: #1f2430;
+  --muted: #4b5563;
+  --ok: #14532d;
+  --ok-bg: #dcfce7;
+  --err: #7f1d1d;
+  --err-bg: #fee2e2;
+  --beam: #dc2626;
+  --scatter: #dc2626;
+  --detector: #2563eb;
+  --card-border: #d4d4d8;
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 20px;
+  margin: 14px 0;
+  background: radial-gradient(130% 90% at 10% 0%, #fff7ed 0%, #f8fafc 40%, #eef2ff 100%);
+  box-shadow: 0 12px 28px rgba(30, 41, 59, 0.10);
+  font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+}
+#rsoxs-calculator h2, #rsoxs-calculator h3 {
+  margin: 0 0 10px 0;
+  color: var(--ink);
+  font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  letter-spacing: 0.2px;
+}
+#rsoxs-calculator p { margin: 6px 0 12px 0; color: var(--muted); line-height: 1.45; }
+.rsoxs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 10px;
+}
+#rsoxs-calculator label { color: var(--ink); font-weight: 600; font-size: 0.95rem; }
+#rsoxs-calculator input {
+  width: 100%;
+  margin-top: 4px;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  padding: 8px;
+  background: #fff;
+}
+#rsoxs-calculator .btns { margin-top: 10px; display: flex; gap: 8px; flex-wrap: wrap; }
+#rsoxs-calculator button {
+  border: 1px solid #94a3b8;
+  border-radius: 10px;
+  padding: 8px 12px;
+  font-weight: 600;
+  background: linear-gradient(180deg, #fefce8 0%, #f8fafc 100%);
+  cursor: pointer;
+}
+#rsoxs-calculator button:hover { background: linear-gradient(180deg, #fff7ed 0%, #eef2ff 100%); }
+#rsoxs-calculator #results {
+  white-space: pre-wrap;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  padding: 12px;
+  background: #f8fafc;
+  color: var(--ink);
+}
+#rsoxs-calculator hr { border: none; border-top: 1px solid #e5e7eb; margin: 16px 0; }
+</style>
+<div id="rsoxs-calculator">
+<h2 class="anchored">
+RSoXS Detector Coverage Calculator (Unified Inputs)
+</h2>
+<p>
+Enter what you know and leave unknown fields blank. Click <strong>Calculate</strong>; inferred fields are highlighted.
+</p>
+<h3 class="anchored">
+Beamline and Detector Inputs
+</h3>
+<div class="rsoxs-grid">
+<p><label>Beam energy (eV)<input id="energyEv" type="number" value="291.65" step="0.01"></label> <label>Beamstop radius (mm)<input id="beamstopRadiusMm" type="number" value="1.5" step="0.1"></label> <label>Detector width (mm)<input id="detectorWidthMm" type="number" value="61.7" step="0.1"></label> <label>Detector height (mm)<input id="detectorHeightMm" type="number" value="61.4" step="0.1"></label> <label>Minimum travel z (mm)<input id="zMinMm" type="number" value="10" step="0.1"></label> <label>Maximum travel z (mm)<input id="zMaxMm" type="number" value="120" step="0.1"></label></p>
 </div>
-<p>In case needed, can exit Bluesky by running:</p>
-<pre><code>exit</code></pre>
-<p>Restarting Bluesky may be needed for the following reasons:</p>
-<ul>
-<li>Code was updated</li>
-<li>Troubleshooting while running scans</li>
-</ul>
-<p>There are instances when exiting a plan or bluesky at an unlucky time will change the behavior of the entire terminal, (text not being displayed when typing, or similar). In these cases, you must close the entire terminal (or tab) and create a new one.</p>
-<p>(no longer supported) Bluesky has has full control over beamline motors as well as data manipulation. Can also run a local version of Bluesky by instead running:</p>
-<pre><code>bsui_local</code></pre>
-<p>In this version, beamline hardware cannot be controlled, but the sample imager, as well as data and spreadsheets can be manipulated. This version is appropriate to run if the RSoXS station does not have scheduled beam time or control over the beam. At any point, the current default Bluesky environment and python path can be checked in a terminal (outside Bluesky):</p>
-<pre><code>echo $BS_ENV
-echo $BS_PYTHONPATH</code></pre>
-<p>If it is needed to run Bluesky using a different environment (e.g., a different version of Bluesky is needed) than what is set as the default, the environment path needs to be typed out explicitly for standard and local Bluesky as shown below. As of September 26, 2024, a newer version of Bluesky can be started by exiting the current Bluesky and then running the following. This became the default environment as of January 30, 2025.</p>
-<pre><code>BS_ENV=/nsls2/conda/envs/2024-2.3-py311-tiled BS_PYTHONPATH=/nsls2/data3/sst/rsoxs/shared/config/bluesky_overlays/2024-2.3-py311-tiled/lib/python3.11/site-packages/ bsui</code></pre>
-<p>It is possible to revert back to the default environment by running <code>exit</code>, then <code>bsui</code>. However, there may be a few errors (e.g., <code>FileNotFoundError: [Errno 2] No such file or directory: '/home/xf07id1/.config/bluesky/md/oldversions%233'</code>). These can be resolved by exiting Bluesky (<code>exit</code>), changing directory (<code>cd</code>) to the path shown in the error, viewing the files in this directory (<code>ls</code>), renaming files that are causing errors (<code>mv [old_file_name] [new_file_name]</code>), and then starting Bluesky (<code>bsui</code>). The following is an example. When switching environments, check the “Versions of DSSI software” output to ensure the version numbers change to those that are desired.</p>
-<pre><code>exit
+<hr>
+<h3 class="anchored">
+Problem Inputs (leave unknown blank)
+</h3>
+<div class="rsoxs-grid">
+<p><label>Sample-to-detector distance z (mm)<input id="distanceMm" type="number" value="30" step="0.1"></label> <label>Target feature length scale d (nm) (optional)<input id="targetLengthNm" type="number" value="20" step="0.1"></label> <label>Desired q min (1/nm) (optional)<input id="qMinDesired" type="number" value="" step="0.001" placeholder="leave blank to auto-fill"></label> <label>Desired q max (1/nm) (optional)<input id="qMaxDesired" type="number" value="" step="0.001" placeholder="leave blank to auto-fill"></label></p>
+</div>
+<div class="btns">
+<button id="runCalc">
+Calculate
+</button>
+<button id="resetComputed">
+Clear Computed Highlights
+</button>
+</div>
+<h3 style="margin-top:16px;" class="anchored">
+Top-Down Sketch (Detector 1)
+</h3>
+<p>
+Solid red line is the incoming beam. Dashed red lines are scattered x-rays for the entered size scale d.&nbsp;Inboard is downward (-x).
+</p>
+<svg id="geomSketch" viewbox="0 0 760 340" style="width:100%; border:1px solid #d0d7de; border-radius:12px; background:linear-gradient(180deg,#f8fafc 0%,#eef2ff 100%);">
+</svg>
+<h3 style="margin-top:16px;" class="anchored">
+Results
+</h3>
+<div id="results">
 
-cd /home/xf07id1/.config/bluesky/md
-ls
-mv oldversions#3 oldversions
-mv versions#2 versions
+</div>
+</div>
+<script>
+(function () {
+const H_EV_S_NM = 1239.841984;
+const NOMINAL_Z_MM = 30.0;
+const autoFields = ["distanceMm", "qMinDesired", "qMaxDesired"];
 
-bsui</code></pre>
-<pre class="quarto"><code></code></pre>
-</section>
-</section>
-<section id="start-phoebus" class="level2">
-<h2 class="anchored" data-anchor-id="start-phoebus">Start phoebus</h2>
-<p>In a new terminal tab, run:</p>
-<pre><code>run-phoebus</code></pre>
-<p>The phoebus GUI should open. If it looks different, reloading one of the saved layouts should reset it.</p>
-<p><img src="../../assets/images/Phoebus.png" class="img-fluid"></p>
-<p>The currents archiver may need to be reloaded from <code>/xf07id1/css-workspace-xf07id/CSS/RSoXS_Currents_archiver.plt</code>.</p>
-<p>Although mostly obsolete, the predecessor, CS-Studio can be opened by running run-css.</p>
-</section>
-<section id="start-pydm" class="level2">
-<h2 class="anchored" data-anchor-id="start-pydm">Start PyDM</h2>
-<p>In a new terminal tab, run:</p>
-<pre><code>conda activate pydm-local</code></pre>
-<p>“local” refers to the PyDM setup that is local to the environment in which it was created. Open the GUI by running:</p>
-<pre><code>pydm /nsls2/data/sst/legacy/RSoXS/.pydm/.pydm/RSoXS_UIS/RSoXSmain6.ui</code></pre>
-<p><img src="../../assets/images/PyDM.png" class="img-fluid"></p>
-<p>Click on Valve Control to open a larger window showing the gate valves and shutters and can be used to open/close them.</p>
-</section>
-<section id="beamline-staff-or-users-can-also-login-into-terminal-app" class="level2">
-<h2 class="anchored" data-anchor-id="beamline-staff-or-users-can-also-login-into-terminal-app">Beamline staff or users can also login into terminal app</h2>
-<p>In a new terminal tab run, for example:</p>
-<pre><code>su pketkar</code></pre>
-<p>Enter password and 2-factor authentication when prompted. This will change the appearance of the terminal according to the users NSLS-II home directory settings, and if beamline staff, will allow SSHing into IOCs etc. For reference, <code>su</code> means “switch user”.</p>
-</section>
-<section id="managing-user-access-to-guacamole-etc." class="level2">
-<h2 class="anchored" data-anchor-id="managing-user-access-to-guacamole-etc.">Managing user access to Guacamole, etc.</h2>
-<p>Log into a new tab.</p>
-<p>View current users by running: <code>n2sn_list_users</code></p>
-<p>Add a user by running <code>n2sn_add_user -l [username] USER</code> or <code>n2sn_add_user -n [life number] USER</code>. Replace [username] and [life number] with the actual username or life number of the user. Ensure that the user has completed the necessary trainings.</p>
-<p>Give access to Guacamole by running: <code>n2sn_add_user -l [username] GUACCTRL</code>. Alternatively, can grant user only view access by running: <code>n2sn_add_user -l [username] GUACVIEW</code>.</p>
-<p>Remove a user by running: <code>n2sn_remove_user -l [username] USER</code></p>
-</section>
-<section id="shutting-down-or-restarting-the-computer-if-needed" class="level2">
-<h2 class="anchored" data-anchor-id="shutting-down-or-restarting-the-computer-if-needed">Shutting down or restarting the computer (if needed)</h2>
-<p>Log into a new tab. To shutdown, run:</p>
-<pre><code>dzdo shutdown now</code></pre>
-<p>The command <code>shutdown --n</code> also works. To restart, run:</p>
-<pre><code>dzdo reboot</code></pre>
-<p><br><br></p>
-</section>
-</section>
-<section id="rsoxs-analysis-computer" class="level1">
-<h1>RSoXS Analysis computer</h1>
-<p>This computer is used to prepare spreadsheets and analyze incoming data.</p>
-<section id="login" class="level2">
-<h2 class="anchored" data-anchor-id="login">Login</h2>
-<p>Username: RSoXS User</p>
-<p>Password: RSoXSUser</p>
-<p>(this will likely have to change in the near future)</p>
-</section>
-<section id="file-directory-one-time-setup" class="level2">
-<h2 class="anchored" data-anchor-id="file-directory-one-time-setup">File directory (one-time setup)</h2>
-<p>Mount the NSLS II drive.</p>
-<ul>
-<li>Go to File Explorer</li>
-<li>Navigate to This PC</li>
-<li>On the upper menu, select the three dots (See more), and click on Map network drive</li>
-<li>Folder: \storage.sst.nsls2.bnl.gov</li>
-<li>Check Reconnect at sign-in</li>
-<li>Click Finish</li>
-<li>Enter your BNL username as, e.g, bnl, and your password. The bnl&nbsp;is necessary to connect to the correct domain.</li>
-</ul>
-<p><br><br></p>
-<p>Set up temporary folder for spreadsheets and other workflow items.</p>
-<ul>
-<li>In the NSLS II drive, navigate to <br>
-</li>
-<li>Create a folder called spreadsheets_temporary</li>
-</ul>
-<p>This folder will be used to gather spreadsheets, notebooks, and other items used for real-time beamline workflow. This directory can be accessed via the RSoXS Control computer and also through JupyterHub via the path <code>/nsls2/data/sst/shared/scratch/spreadsheets_temporary</code></p>
-<p>Currently, there is not a simple way for the RSoXS Control computer to access these documents directly from the proposal directory because the RSoXS Control computer is not associated with any user’s account (and login credentials). Thus, this <code>spreadsheets_temporary</code> folder is used during the beam time, and its contents are then transferred to the proposal directory at the end of each beam time.</p>
-</section>
-<section id="set-up-internet-browser" class="level2">
-<h2 class="anchored" data-anchor-id="set-up-internet-browser">Set up internet browser</h2>
-<p>Feel free to import these bookmarked resources into a chrome window for easy access during a beam time: https://github.com/NSLS-II-SST/rsoxs_workflow/blob/20250415_Draft/examples/bookmarks_6_3_25.html</p>
-</section>
-<section id="open-nbs-viewer" class="level2">
-<h2 class="anchored" data-anchor-id="open-nbs-viewer">Open nbs-viewer</h2>
-<p>See installation instructions: https://github.com/xraygui/nbs-viewer</p>
-</section>
-<section id="no-longer-used-open-rsoxs-tiled-in-igor" class="level2">
-<h2 class="anchored" data-anchor-id="no-longer-used-open-rsoxs-tiled-in-igor">(no longer used) Open RSoXS Tiled in Igor</h2>
-<p>See the Installation instructions in the README.md document.</p>
+function clearComputedStyles() {
+  autoFields.forEach(function (id) {
+    const el = document.getElementById(id);
+    el.style.background = "";
+    el.style.borderColor = "";
+  });
+}
+
+function markComputed(id) {
+  const el = document.getElementById(id);
+  el.style.background = "#dcfce7";
+  el.style.borderColor = "#16a34a";
+}
+
+function getNumber(id) {
+  const v = Number(document.getElementById(id).value);
+  if (!Number.isFinite(v)) throw new Error(`Invalid numeric input: ${id}`);
+  return v;
+}
+
+function getOptionalNumber(id) {
+  const raw = document.getElementById(id).value.trim();
+  if (raw === "") return null;
+  const v = Number(raw);
+  if (!Number.isFinite(v)) throw new Error(`Invalid numeric input: ${id}`);
+  return v;
+}
+
+function qAtRadius(radiusMm, distanceMm, energyEv) {
+  const lambdaNm = H_EV_S_NM / energyEv;
+  const twoTheta = Math.atan(radiusMm / distanceMm);
+  const theta = 0.5 * twoTheta;
+  return (4 * Math.PI / lambdaNm) * Math.sin(theta);
+}
+
+function dFromQ(qInvNm) { return (2 * Math.PI) / qInvNm; }
+
+function radiusAtDetectorForQ(qInvNm, distanceMm, energyEv) {
+  const lambdaNm = H_EV_S_NM / energyEv;
+  const s = (qInvNm * lambdaNm) / (4 * Math.PI);
+  if (s <= 0 || s >= 1) return null;
+  const twoTheta = 2 * Math.asin(s);
+  return distanceMm * Math.tan(twoTheta);
+}
+
+function detectorGeometryAtDistance(distanceMm, widthMm, heightMm) {
+  const xCenterMm = -(distanceMm - NOMINAL_Z_MM);
+  const halfW = 0.5 * widthMm;
+  const halfH = 0.5 * heightMm;
+  const xMin = xCenterMm - halfW;
+  const xMax = xCenterMm + halfW;
+
+  let dx = 0;
+  if (0 < xMin) dx = xMin;
+  else if (0 > xMax) dx = -xMax;
+  const rNearestMm = Math.abs(dx);
+
+  const corners = [[xMin,-halfH],[xMin,halfH],[xMax,-halfH],[xMax,halfH]];
+  const rFarthestMm = Math.max.apply(null, corners.map(function (p) { return Math.hypot(p[0], p[1]); }));
+
+  return { xCenterMm, xMinMm: xMin, xMaxMm: xMax, rNearestMm, rFarthestMm };
+}
+
+function commonInputs() {
+  const energyEv = getNumber("energyEv");
+  const beamstopRadiusMm = getNumber("beamstopRadiusMm");
+  const detectorWidthMm = getNumber("detectorWidthMm");
+  const detectorHeightMm = getNumber("detectorHeightMm");
+  const zMinMm = getNumber("zMinMm");
+  const zMaxMm = getNumber("zMaxMm");
+  if (energyEv <= 0) throw new Error("Beam energy must be > 0 eV.");
+  if (beamstopRadiusMm <= 0) throw new Error("Beamstop radius must be > 0 mm.");
+  if (detectorWidthMm <= 0 || detectorHeightMm <= 0) throw new Error("Detector dimensions must be > 0 mm.");
+  if (zMinMm <= 0 || zMaxMm <= 0) throw new Error("Travel bounds must be > 0 mm.");
+  if (zMinMm >= zMaxMm) throw new Error("zMin must be less than zMax.");
+  return { energyEv, beamstopRadiusMm, detectorWidthMm, detectorHeightMm, zMinMm, zMaxMm };
+}
+
+function fmt(x, n) { return Number(x).toFixed(n); }
+
+function coverageAtDistance(distanceMm, cfg) {
+  const g = detectorGeometryAtDistance(distanceMm, cfg.detectorWidthMm, cfg.detectorHeightMm);
+  const rMinEffective = Math.max(cfg.beamstopRadiusMm, g.rNearestMm);
+  const qMin = qAtRadius(rMinEffective, distanceMm, cfg.energyEv);
+  const qMax = qAtRadius(g.rFarthestMm, distanceMm, cfg.energyEv);
+  return {
+    xCenterMm: g.xCenterMm, xMinMm: g.xMinMm, xMaxMm: g.xMaxMm,
+    qMin, qMax, dMinNm: dFromQ(qMax), dMaxNm: dFromQ(qMin)
+  };
+}
+
+function feasibleDistanceWindowFromQ(qMinDesired, qMaxDesired, cfg) {
+  let first = null;
+  let last = null;
+  const steps = 1200;
+  for (let i = 0; i <= steps; i += 1) {
+    const z = cfg.zMinMm + (cfg.zMaxMm - cfg.zMinMm) * (i / steps);
+    const cov = coverageAtDistance(z, cfg);
+    const ok = cov.qMin <= qMinDesired && cov.qMax >= qMaxDesired;
+    if (ok) { if (first === null) first = z; last = z; }
+  }
+  if (first === null) return null;
+  return { zLo: first, zHi: last, zMid: 0.5 * (first + last) };
+}
+
+function drawSketch(cfg, distanceMm, cov, qTarget) {
+  const svg = document.getElementById("geomSketch");
+  const W = 760;
+  const H = 340;
+  const cx = 210;
+  const cy = 170;
+  const scale = 2.8;
+  while (svg.firstChild) svg.removeChild(svg.firstChild);
+
+  const ns = "http://www.w3.org/2000/svg";
+  function line(x1,y1,x2,y2,color,w,dash) {
+    const el = document.createElementNS(ns, "line");
+    el.setAttribute("x1", x1); el.setAttribute("y1", y1);
+    el.setAttribute("x2", x2); el.setAttribute("y2", y2);
+    el.setAttribute("stroke", color); el.setAttribute("stroke-width", w || 2);
+    if (dash) el.setAttribute("stroke-dasharray", dash);
+    svg.appendChild(el);
+    return el;
+  }
+  function text(x,y,t,color,size,anchor) {
+    const el = document.createElementNS(ns, "text");
+    el.setAttribute("x", x); el.setAttribute("y", y);
+    el.setAttribute("fill", color || "#1f2937");
+    el.setAttribute("font-size", size || 13);
+    el.setAttribute("font-family", "Segoe UI, Helvetica Neue, Arial, sans-serif");
+    if (anchor) el.setAttribute("text-anchor", anchor);
+    el.textContent = t;
+    svg.appendChild(el);
+    return el;
+  }
+  function circle(x,y,r,fill,stroke) {
+    const el = document.createElementNS(ns, "circle");
+    el.setAttribute("cx", x); el.setAttribute("cy", y); el.setAttribute("r", r);
+    el.setAttribute("fill", fill || "none");
+    if (stroke) el.setAttribute("stroke", stroke);
+    svg.appendChild(el);
+    return el;
+  }
+  function addBackdrop() {
+    const defs = document.createElementNS(ns, "defs");
+    defs.innerHTML = '<filter id="paper-grain" x="-20%" y="-20%" width="140%" height="140%"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="11"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="table" tableValues="0 0.08"/></feComponentTransfer></filter>';
+    svg.appendChild(defs);
+    const bg = document.createElementNS(ns, "rect");
+    bg.setAttribute("x", 0); bg.setAttribute("y", 0); bg.setAttribute("width", W); bg.setAttribute("height", H);
+    bg.setAttribute("fill", "transparent"); bg.setAttribute("filter", "url(#paper-grain)");
+    svg.appendChild(bg);
+  }
+
+  const zToX = function (zMm) { return cx + zMm * scale; };
+  const xToY = function (xMm) { return cy - xMm * scale; };
+
+  addBackdrop();
+  line(20, cy, W - 20, cy, "#dc2626", 3);
+  text(24, cy - 12, "upstream (-z)", "#7f1d1d", 12);
+  text(W - 130, cy - 12, "downstream (+z)", "#7f1d1d", 12);
+
+  circle(cx, cy, 3, "#111", "#111");
+  text(cx - 8, cy - 20, "sample", "#111827", 12, "end");
+  text(24, 28, "outboard (+x)", "#374151", 12);
+  text(24, H - 12, "inboard (-x)", "#374151", 12);
+
+  const zDetPx = zToX(distanceMm);
+  const yTop = xToY(cov.xMaxMm);
+  const yBottom = xToY(cov.xMinMm);
+  line(zDetPx, yTop, zDetPx, yBottom, "#2563eb", 5);
+  text(zDetPx + 12, yTop - 12, `detector active span (${fmt(cov.xMinMm,1)} to ${fmt(cov.xMaxMm,1)} mm in x)`, "#1e40af", 12);
+
+  const beamstopYTop = xToY(cfg.beamstopRadiusMm);
+  const beamstopYBottom = xToY(-cfg.beamstopRadiusMm);
+  line(zDetPx, beamstopYTop, zDetPx, beamstopYBottom, "#7f1d1d", 7);
+  text(zDetPx + 12, beamstopYTop - 6, "beamstop-shadow zone", "#7f1d1d", 11);
+
+  if (qTarget !== null) {
+    const rTarget = radiusAtDetectorForQ(qTarget, distanceMm, cfg.energyEv);
+    if (rTarget !== null) {
+      const yOut = xToY(rTarget);
+      const yIn = xToY(-rTarget);
+      line(cx, cy, zDetPx, yOut, "#dc2626", 2, "6 4");
+      line(cx, cy, zDetPx, yIn, "#dc2626", 2, "6 4");
+
+      const onOut = yOut >= Math.min(yTop, yBottom) && yOut <= Math.max(yTop, yBottom);
+      const onIn = yIn >= Math.min(yTop, yBottom) && yIn <= Math.max(yTop, yBottom);
+      circle(zDetPx, yOut, 4, onOut ? "#16a34a" : "#dc2626", "#111827");
+      circle(zDetPx, yIn, 4, onIn ? "#16a34a" : "#dc2626", "#111827");
+
+      text(36, 72, "scattered x-rays", "#991b1b", 12);
+    } else {
+      text(36, 72, "scattered x-rays", "#991b1b", 12);
+      text(zDetPx + 12, cy - 32, "target is not physically reachable at this energy", "#991b1b", 11);
+    }
+  }
+}
+
+function runCalculator() {
+  const out = [];
+  const c = commonInputs();
+  let distanceMm = getOptionalNumber("distanceMm");
+  const targetLengthNm = getOptionalNumber("targetLengthNm");
+  const qMinProvided = getOptionalNumber("qMinDesired");
+  const qMaxProvided = getOptionalNumber("qMaxDesired");
+  let qMinDesired = qMinProvided;
+  let qMaxDesired = qMaxProvided;
+
+  clearComputedStyles();
+
+  if (distanceMm !== null && distanceMm <= 0) throw new Error("Distance must be > 0 mm if provided.");
+  if (targetLengthNm !== null && targetLengthNm <= 0) throw new Error("Target length scale must be > 0 nm if provided.");
+  if (qMinDesired !== null && qMinDesired <= 0) throw new Error("Desired q min must be > 0 if provided.");
+  if (qMaxDesired !== null && qMaxDesired <= 0) throw new Error("Desired q max must be > 0 if provided.");
+  if (qMinDesired !== null && qMaxDesired !== null && qMinDesired >= qMaxDesired) throw new Error("Desired q min must be smaller than desired q max.");
+
+  if (distanceMm === null && qMinDesired !== null && qMaxDesired !== null) {
+    const win = feasibleDistanceWindowFromQ(qMinDesired, qMaxDesired, c);
+    if (!win) throw new Error("No feasible distance in travel window satisfies requested q-range.");
+    distanceMm = win.zMid;
+    document.getElementById("distanceMm").value = fmt(distanceMm, 2);
+    markComputed("distanceMm");
+    out.push(`Auto-filled distance from desired q-range: ${fmt(distanceMm, 2)} mm (feasible window ${fmt(win.zLo, 2)} to ${fmt(win.zHi, 2)} mm)`);
+    out.push("");
+  }
+
+  if (distanceMm === null) throw new Error("Provide distance, or provide both desired q min and q max so distance can be inferred.");
+  if (distanceMm < c.zMinMm || distanceMm > c.zMaxMm) {
+    out.push(`Note: distance ${fmt(distanceMm, 2)} mm is outside configured travel window [${fmt(c.zMinMm, 2)}, ${fmt(c.zMaxMm, 2)}] mm.`);
+    out.push("");
+  }
+
+  const cov = coverageAtDistance(distanceMm, c);
+  if (qMinDesired === null) { qMinDesired = cov.qMin; document.getElementById("qMinDesired").value = fmt(qMinDesired, 4); markComputed("qMinDesired"); }
+  if (qMaxDesired === null) { qMaxDesired = cov.qMax; document.getElementById("qMaxDesired").value = fmt(qMaxDesired, 4); markComputed("qMaxDesired"); }
+
+  const requestedFits = qMinDesired >= cov.qMin && qMaxDesired <= cov.qMax;
+  const qTarget = targetLengthNm !== null ? (2 * Math.PI) / targetLengthNm : null;
+  const targetFits = qTarget !== null ? (qTarget >= cov.qMin && qTarget <= cov.qMax) : null;
+  drawSketch(c, distanceMm, cov, qTarget);
+
+  out.push("Calculator results");
+  out.push(`Energy: ${fmt(c.energyEv, 2)} eV`);
+  out.push(`Distance z: ${fmt(distanceMm, 2)} mm`);
+  out.push(`Detector center x-offset from beam (inboard negative): ${fmt(cov.xCenterMm, 2)} mm`);
+  out.push(`Beamstop radius: ${fmt(c.beamstopRadiusMm, 2)} mm`);
+  out.push(`Detector sensor x-span at this z: ${fmt(cov.xMinMm, 2)} to ${fmt(cov.xMaxMm, 2)} mm`);
+  out.push(`Detector q coverage at this distance: ${fmt(cov.qMin, 4)} to ${fmt(cov.qMax, 4)} 1/nm`);
+
+  if (qMinProvided !== null && qMaxProvided !== null) {
+    out.push("");
+    out.push(`Requested q window: ${fmt(qMinDesired, 4)} to ${fmt(qMaxDesired, 4)} 1/nm`);
+    out.push(requestedFits
+      ? "Conclusion (requested q-range): Requested q features fit within current detector coverage."
+      : "Conclusion (requested q-range): Requested q features do NOT fit within current detector coverage.");
+    const win = feasibleDistanceWindowFromQ(qMinDesired, qMaxDesired, c);
+    if (win) {
+      out.push(`Feasible distance window for requested q-range within travel bounds: ${fmt(win.zLo, 2)} to ${fmt(win.zHi, 2)} mm`);
+      out.push(`Suggested distance (midpoint): ${fmt(win.zMid, 2)} mm`);
+    }
+  }
+
+  if (targetLengthNm !== null) {
+    out.push("");
+    out.push(`Target feature length scale: ${fmt(targetLengthNm, 2)} nm (q=${fmt(qTarget, 4)} 1/nm)`);
+    out.push(targetFits
+      ? "Conclusion (target feature): Scattered x-rays from the target feature intersect the active sensor."
+      : "Conclusion (target feature): Scattered x-rays from the target feature miss the active sensor.");
+  }
+
+  return out.join('\n');
+}
+
+function setResult(text, isError) {
+  const el = document.getElementById("results");
+  el.textContent = text;
+  el.style.borderColor = isError ? "#ef4444" : "#22c55e";
+  el.style.background = isError ? "#fee2e2" : "#dcfce7";
+}
+
+document.getElementById("runCalc").addEventListener("click", function () {
+  try { setResult(runCalculator(), false); }
+  catch (err) { setResult(`Input error: ${err.message}`, true); }
+});
+
+document.getElementById("resetComputed").addEventListener("click", function () {
+  clearComputedStyles();
+});
+
+["distanceMm", "detectorWidthMm", "detectorHeightMm", "zMinMm", "zMaxMm", "targetLengthNm"].forEach(function (id) {
+  document.getElementById(id).addEventListener("input", function () {
+    try {
+      const c = commonInputs();
+      const z = getOptionalNumber("distanceMm");
+      if (z !== null && z > 0) {
+        const cov = coverageAtDistance(z, c);
+        const dTarget = getOptionalNumber("targetLengthNm");
+        const qTarget = dTarget !== null ? (2 * Math.PI) / dTarget : null;
+        drawSketch(c, z, cov, qTarget);
+      }
+    } catch (_) {}
+  });
+});
+
+try {
+  const c0 = commonInputs();
+  const z0 = getNumber("distanceMm");
+  const cov0 = coverageAtDistance(z0, c0);
+  const d0 = getOptionalNumber("targetLengthNm");
+  const q0 = d0 !== null ? (2 * Math.PI) / d0 : null;
+  drawSketch(c0, z0, cov0, q0);
+} catch (_) {}
+
+setResult("Ready. Enter known values and leave unknown fields blank, then click Calculate.", false);
+})();
+</script>
 
 
-</section>
-</section>
+</section></main></div>
 
-</main> <!-- /main -->
+
+ <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
@@ -1074,17 +1378,17 @@ bsui</code></pre>
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../generated/qmd/access_facilities.html" class="pagination-link" aria-label="Access the beamline and facilities (onsite users)">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Access the beamline and facilities (onsite users)</span>
+      <a href="../../generated/qmd/vent_pump_load_lock.html" class="pagination-link" aria-label="Vent and pump samples into load lock">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Vent and pump samples into load lock</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../generated/qmd/sample_preparation_at_beamline.html" class="pagination-link" aria-label="Sample preparation at beamline">
-        <span class="nav-page-text">Sample preparation at beamline</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../generated/qmd/codebases_software_workflow.html" class="pagination-link" aria-label="Beamline codebases and software development workflow">
+        <span class="nav-page-text">Beamline codebases and software development workflow</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
-</div> <!-- /content -->
+ <!-- /content -->
 
 
 
