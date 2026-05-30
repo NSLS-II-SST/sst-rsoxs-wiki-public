@@ -504,7 +504,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Before pumping down the high-throughput solid sample bar into the beamline load lock, scan the bar using the imager microscope. - Load the sample bar with the front (flat side) facing up into the image holder and switch on the microscope light. Ensure the shoulders of the bar are fully flush against the holder, and be careful not to bend the bar while loading it. - In Bluesky, run <code>RE(image_bar(front=True, path="/nsls2/data/sst/shared/scratch/spreadsheets_temporary/BarImage_Front.jpg"))</code>. The bar will slide along its long axis, and a series of telecentric images along the bar will be captured. If the bar stops sliding before the full image is saved, the imaging can be resumed by clicking the “Start” button on the “RSoXS screen 5” tab in phoebus.</p>
 <p>Note the scan ID of the bar image scan, and run the code below to stitch the indiviual raw images into a complete picture of the bar.</p>
 <pre class="quarto"><code></code></pre>
-<div id="c182ee6f" class="cell">
+<div id="baff5682" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
@@ -536,258 +536,94 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<div id="78809373" class="cell">
+<div id="4f9846be" class="cell" data-message="false">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-fold: true</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">## Access NSLS II data</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> PyHyperScattering <span class="im">as</span> phs</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">#| output: false</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">## Access NSLS II data</span></span>
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>loader <span class="op">=</span> phs.load.SST1RSoXSDB(corr_mode<span class="op">=</span><span class="st">"none"</span>)</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>catalog <span class="op">=</span> loader.c</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> PyHyperScattering <span class="im">as</span> phs</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>loader <span class="op">=</span> phs.load.SST1RSoXSDB(corr_mode<span class="op">=</span><span class="st">"none"</span>)</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>catalog <span class="op">=</span> loader.c</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<pre class="text"><code>WARNING:silx.opencl.common:Unable to import pyOpenCl. Please install it from: https://pypi.org/project/pyopencl
-WARNING:pyFAI.DEPRECATION:Module pyFAI.azimuthalIntegrator is deprecated since pyFAI version 2024.10. Use 'pyFAI.integrator.azimuthal' instead.
-  File "&lt;frozen runpy&gt;", line 198, in _run_module_as_main
-  File "&lt;frozen runpy&gt;", line 88, in _run_code
-  File "c:\Users\pmk\AppData\Local\miniforge3\envs\20260415_3\Lib\site-packages\ipykernel_launcher.py", line 18, in &lt;module&gt;
-    app.launch_new_instance()
-  File "c:\Users\pmk\AppData\Local\miniforge3\envs\20260415_3\Lib\site-packages\traitlets\config\application.py", line 1075, in launch_instance
-    app.start()
-  File "c:\Users\pmk\AppData\Local\miniforge3\envs\20260415_3\Lib\site-packages\ipykernel\kernelapp.py", line 758, in start
-    self.io_loop.start()
-  File "c:\Users\pmk\AppData\Local\miniforge3\envs\20260415_3\Lib\site-packages\tornado\platform\asyncio.py", line 211, in start
-    self.asyncio_loop.run_forever()
-  File "c:\Users\pmk\AppData\Local\miniforge3\envs\20260415_3\Lib\asyncio\base_events.py", line 677, in run_forever
-    self._run_once()
-  File "c:\Users\pmk\AppData\Local\miniforge3\envs\20260415_3\Lib\asyncio\base_events.py", line 2057, in _run_once
-    handle._run()
-  File "c:\Users\pmk\AppData\Local\miniforge3\envs\20260415_3\Lib\asyncio\events.py", line 94, in _run
-    self._context.run(self._callback, *self._args)
-  File "c:\Users\pmk\AppData\Local\miniforge3\envs\20260415_3\Lib\site-packages\ipykernel\kernelbase.py", line 621, in shell_main
-    await self.dispatch_shell(msg, subshell_id=subshell_id)
-  File "c:\Users\pmk\AppData\Local\miniforge3\envs\20260415_3\Lib\site-packages\ipykernel\kernelbase.py", line 478, in dispatch_shell
-    await result
-  File "c:\Users\pmk\AppData\Local\miniforge3\envs\20260415_3\Lib\site-packages\ipykernel\ipkernel.py", line 372, in execute_request
-    await super().execute_request(stream, ident, parent)
-  File "c:\Users\pmk\AppData\Local\miniforge3\envs\20260415_3\Lib\site-packages\ipykernel\kernelbase.py", line 834, in execute_request
-    reply_content = await reply_content
-  File "c:\Users\pmk\AppData\Local\miniforge3\envs\20260415_3\Lib\site-packages\ipykernel\ipkernel.py", line 464, in do_execute
-    res = shell.run_cell(
-  File "c:\Users\pmk\AppData\Local\miniforge3\envs\20260415_3\Lib\site-packages\ipykernel\zmqshell.py", line 663, in run_cell
-    return super().run_cell(*args, **kwargs)
-  File "c:\Users\pmk\AppData\Local\miniforge3\envs\20260415_3\Lib\site-packages\IPython\core\interactiveshell.py", line 3169, in run_cell
-    result = self._run_cell(
-  File "c:\Users\pmk\AppData\Local\miniforge3\envs\20260415_3\Lib\site-packages\IPython\core\interactiveshell.py", line 3224, in _run_cell
-    result = runner(coro)
-  File "c:\Users\pmk\AppData\Local\miniforge3\envs\20260415_3\Lib\site-packages\IPython\core\async_helpers.py", line 128, in _pseudo_sync_runner
-    coro.send(None)
-  File "c:\Users\pmk\AppData\Local\miniforge3\envs\20260415_3\Lib\site-packages\IPython\core\interactiveshell.py", line 3446, in run_cell_async
-    has_raised = await self.run_ast_nodes(code_ast.body, cell_name,
-  File "c:\Users\pmk\AppData\Local\miniforge3\envs\20260415_3\Lib\site-packages\IPython\core\interactiveshell.py", line 3687, in run_ast_nodes
-    if await self.run_code(code, result, async_=asy):
-  File "c:\Users\pmk\AppData\Local\miniforge3\envs\20260415_3\Lib\site-packages\IPython\core\interactiveshell.py", line 3747, in run_code
-    exec(code_obj, self.user_global_ns, self.user_ns)
-  File "C:\Users\pmk\AppData\Local\Temp\1\ipykernel_9180\4072004421.py", line 3, in &lt;module&gt;
-    import PyHyperScattering as phs
-  File "&lt;frozen importlib._bootstrap&gt;", line 1371, in _find_and_load
-  File "&lt;frozen importlib._bootstrap&gt;", line 1342, in _find_and_load_unlocked
-  File "&lt;frozen importlib._bootstrap&gt;", line 938, in _load_unlocked
-  File "&lt;frozen importlib._bootstrap_external&gt;", line 759, in exec_module
-  File "&lt;frozen importlib._bootstrap&gt;", line 491, in _call_with_frames_removed
-  File "c:\Users\pmk\AppData\Local\miniforge3\envs\20260415_3\Lib\site-packages\PyHyperScattering\__init__.py", line 2, in &lt;module&gt;
-    from PyHyperScattering import integrate
-  File "&lt;frozen importlib._bootstrap&gt;", line 1434, in _handle_fromlist
-  File "&lt;frozen importlib._bootstrap&gt;", line 491, in _call_with_frames_removed
-  File "&lt;frozen importlib._bootstrap&gt;", line 1371, in _find_and_load
-  File "&lt;frozen importlib._bootstrap&gt;", line 1342, in _find_and_load_unlocked
-  File "&lt;frozen importlib._bootstrap&gt;", line 938, in _load_unlocked
-  File "&lt;frozen importlib._bootstrap_external&gt;", line 759, in exec_module
-  File "&lt;frozen importlib._bootstrap&gt;", line 491, in _call_with_frames_removed
-  File "c:\Users\pmk\AppData\Local\miniforge3\envs\20260415_3\Lib\site-packages\PyHyperScattering\integrate.py", line 1, in &lt;module&gt;
-    from PyHyperScattering.PFEnergySeriesIntegrator import PFEnergySeriesIntegrator
-  File "&lt;frozen importlib._bootstrap&gt;", line 1371, in _find_and_load
-  File "&lt;frozen importlib._bootstrap&gt;", line 1342, in _find_and_load_unlocked
-  File "&lt;frozen importlib._bootstrap&gt;", line 938, in _load_unlocked
-  File "&lt;frozen importlib._bootstrap_external&gt;", line 759, in exec_module
-  File "&lt;frozen importlib._bootstrap&gt;", line 491, in _call_with_frames_removed
-  File "c:\Users\pmk\AppData\Local\miniforge3\envs\20260415_3\Lib\site-packages\PyHyperScattering\PFEnergySeriesIntegrator.py", line 1, in &lt;module&gt;
-    from pyFAI import azimuthalIntegrator
-  File "&lt;frozen importlib._bootstrap&gt;", line 1434, in _handle_fromlist
-  File "&lt;frozen importlib._bootstrap&gt;", line 491, in _call_with_frames_removed
-  File "&lt;frozen importlib._bootstrap&gt;", line 1371, in _find_and_load
-  File "&lt;frozen importlib._bootstrap&gt;", line 1342, in _find_and_load_unlocked
-  File "&lt;frozen importlib._bootstrap&gt;", line 938, in _load_unlocked
-  File "&lt;frozen importlib._bootstrap_external&gt;", line 759, in exec_module
-c:\Users\pmk\AppData\Local\miniforge3\envs\20260415_3\Lib\site-packages\PyHyperScattering\integrate.py:3: UserWarning: Could not import CuPy or ndigpu.  If you expect this machine to support CuPy, check dependencies.  Falling back to scikit-image/numpy CPU integration.
-  from PyHyperScattering.WPIntegrator import WPIntegrator
-c:\Users\pmk\AppData\Local\miniforge3\envs\20260415_3\Lib\site-packages\PyHyperScattering\integrate.py:4: UserWarning: Unable to load optional dependency pygix, needed for grazing.  Install with pyhyperscattering[grazing] if needed.
-  from PyHyperScattering.PGGeneralIntegrator import PGGeneralIntegrator</code></pre>
-<script type="esms-options">{"shimMode": true}</script><style>*[data-root-id],
-*[data-root-id] > * {
-  box-sizing: border-box;
-  font-family: var(--jp-ui-font-family);
-  font-size: var(--jp-ui-font-size1);
-  color: var(--vscode-editor-foreground, var(--jp-ui-font-color1));
-}
-
-/* Override VSCode background color */
-.cell-output-ipywidget-background:has(
-  > .cell-output-ipywidget-background > .lm-Widget > *[data-root-id]
-),
-.cell-output-ipywidget-background:has(> .lm-Widget > *[data-root-id]) {
-  background-color: transparent !important;
-}
-</style>
-<div id="a9ad04fd-00a3-4a33-94d7-fa7ce445c6ed">
-  <div id="edbb2668-89af-4baa-b6d4-ae29a9248f36" data-root-id="a9ad04fd-00a3-4a33-94d7-fa7ce445c6ed" style="display: contents;"></div>
-</div>
-<script type="application/javascript">(function(root) {
-  var docs_json = {"dc8ba4d4-d38f-440c-8402-b054d0356425":{"version":"3.9.0","title":"Bokeh Application","config":{"type":"object","name":"DocumentConfig","id":"c17ce171-0399-4a74-ac5c-6075a31650cb","attributes":{"notifications":{"type":"object","name":"Notifications","id":"0889036d-1dfb-4ddf-9ba8-29c217a18912"}}},"roots":[{"type":"object","name":"panel.models.browser.BrowserInfo","id":"a9ad04fd-00a3-4a33-94d7-fa7ce445c6ed"},{"type":"object","name":"panel.models.comm_manager.CommManager","id":"ec5eb77a-cf6f-4b64-aaae-7b346f5eaa0a","attributes":{"plot_id":"a9ad04fd-00a3-4a33-94d7-fa7ce445c6ed","comm_id":"54e4025a41ce4138ad500089125b566a","client_comm_id":"3bff0bd42bbe4a14b07b42f91a7e3c37"}}],"defs":[{"type":"model","name":"ReactiveHTML1"},{"type":"model","name":"FlexBox1","properties":[{"name":"align_content","kind":"Any","default":"flex-start"},{"name":"align_items","kind":"Any","default":"flex-start"},{"name":"flex_direction","kind":"Any","default":"row"},{"name":"flex_wrap","kind":"Any","default":"wrap"},{"name":"gap","kind":"Any","default":""},{"name":"justify_content","kind":"Any","default":"flex-start"}]},{"type":"model","name":"FloatPanel1","properties":[{"name":"config","kind":"Any","default":{"type":"map"}},{"name":"contained","kind":"Any","default":true},{"name":"position","kind":"Any","default":"right-top"},{"name":"offsetx","kind":"Any","default":null},{"name":"offsety","kind":"Any","default":null},{"name":"theme","kind":"Any","default":"primary"},{"name":"status","kind":"Any","default":"normalized"}]},{"type":"model","name":"GridStack1","properties":[{"name":"ncols","kind":"Any","default":null},{"name":"nrows","kind":"Any","default":null},{"name":"allow_resize","kind":"Any","default":true},{"name":"allow_drag","kind":"Any","default":true},{"name":"state","kind":"Any","default":[]}]},{"type":"model","name":"drag1","properties":[{"name":"slider_width","kind":"Any","default":5},{"name":"slider_color","kind":"Any","default":"black"},{"name":"start","kind":"Any","default":0},{"name":"end","kind":"Any","default":100},{"name":"value","kind":"Any","default":50}]},{"type":"model","name":"click1","properties":[{"name":"terminal_output","kind":"Any","default":""},{"name":"debug_name","kind":"Any","default":""},{"name":"clears","kind":"Any","default":0}]},{"type":"model","name":"ReactiveESM1","properties":[{"name":"esm_constants","kind":"Any","default":{"type":"map"}}]},{"type":"model","name":"JSComponent1","properties":[{"name":"esm_constants","kind":"Any","default":{"type":"map"}}]},{"type":"model","name":"ReactComponent1","properties":[{"name":"use_shadow_dom","kind":"Any","default":true},{"name":"esm_constants","kind":"Any","default":{"type":"map"}}]},{"type":"model","name":"AnyWidgetComponent1","properties":[{"name":"use_shadow_dom","kind":"Any","default":true},{"name":"esm_constants","kind":"Any","default":{"type":"map"}}]},{"type":"model","name":"FastWrapper1","properties":[{"name":"object","kind":"Any","default":null},{"name":"style","kind":"Any","default":null}]},{"type":"model","name":"NotificationArea1","properties":[{"name":"js_events","kind":"Any","default":{"type":"map"}},{"name":"max_notifications","kind":"Any","default":5},{"name":"notifications","kind":"Any","default":[]},{"name":"position","kind":"Any","default":"bottom-right"},{"name":"_clear","kind":"Any","default":0},{"name":"types","kind":"Any","default":[{"type":"map","entries":[["type","warning"],["background","#ffc107"],["icon",{"type":"map","entries":[["className","fas fa-exclamation-triangle"],["tagName","i"],["color","white"]]}]]},{"type":"map","entries":[["type","info"],["background","#007bff"],["icon",{"type":"map","entries":[["className","fas fa-info-circle"],["tagName","i"],["color","white"]]}]]}]}]},{"type":"model","name":"Notification","properties":[{"name":"background","kind":"Any","default":null},{"name":"duration","kind":"Any","default":3000},{"name":"icon","kind":"Any","default":null},{"name":"message","kind":"Any","default":""},{"name":"notification_type","kind":"Any","default":null},{"name":"_rendered","kind":"Any","default":false},{"name":"_destroyed","kind":"Any","default":false}]},{"type":"model","name":"TemplateActions1","properties":[{"name":"open_modal","kind":"Any","default":0},{"name":"close_modal","kind":"Any","default":0}]},{"type":"model","name":"BootstrapTemplateActions1","properties":[{"name":"open_modal","kind":"Any","default":0},{"name":"close_modal","kind":"Any","default":0}]},{"type":"model","name":"TemplateEditor1","properties":[{"name":"layout","kind":"Any","default":[]}]},{"type":"model","name":"MaterialTemplateActions1","properties":[{"name":"open_modal","kind":"Any","default":0},{"name":"close_modal","kind":"Any","default":0}]},{"type":"model","name":"request_value1","properties":[{"name":"fill","kind":"Any","default":"none"},{"name":"_synced","kind":"Any","default":null},{"name":"_request_sync","kind":"Any","default":0}]},{"type":"model","name":"holoviews.plotting.bokeh.raster.HoverModel","properties":[{"name":"xy","kind":"Any","default":null},{"name":"data","kind":"Any","default":null}]}]}};
-  var render_items = [{"docid":"dc8ba4d4-d38f-440c-8402-b054d0356425","roots":{"a9ad04fd-00a3-4a33-94d7-fa7ce445c6ed":"edbb2668-89af-4baa-b6d4-ae29a9248f36"},"root_ids":["a9ad04fd-00a3-4a33-94d7-fa7ce445c6ed"]}];
-  var docs = Object.values(docs_json)
-  if (!docs) {
-    return
-  }
-  const version = docs[0].version.replace('rc', '-rc.').replace('.dev', '-dev.')
-  async function embed_document(root) {
-    var Bokeh = get_bokeh(root)
-    await Bokeh.embed.embed_items_notebook(docs_json, render_items);
-    for (const render_item of render_items) {
-      for (const root_id of render_item.root_ids) {
-    const id_el = document.getElementById(root_id)
-    if (id_el.children.length && id_el.children[0].hasAttribute('data-root-id')) {
-      const root_el = id_el.children[0]
-      root_el.id = root_el.id + '-rendered'
-      for (const child of root_el.children) {
-            // Ensure JupyterLab does not capture keyboard shortcuts
-            // see: https://jupyterlab.readthedocs.io/en/4.1.x/extension/notebook.html#keyboard-interaction-model
-        child.setAttribute('data-lm-suppress-shortcuts', 'true')
-      }
-    }
-      }
-    }
-  }
-  function get_bokeh(root) {
-    if (root.Bokeh === undefined) {
-      return null
-    } else if (root.Bokeh.version !== version) {
-      if (root.Bokeh.versions === undefined || !root.Bokeh.versions.has(version)) {
-    return null
-      }
-      return root.Bokeh.versions.get(version);
-    } else if (root.Bokeh.version === version) {
-      return root.Bokeh
-    }
-    return null
-  }
-  function is_loaded(root) {
-    var Bokeh = get_bokeh(root)
-    return (Bokeh != null && Bokeh.Panel !== undefined)
-  }
-  if (is_loaded(root)) {
-    embed_document(root);
-  } else {
-    var attempts = 0;
-    var timer = setInterval(function(root) {
-      if (is_loaded(root)) {
-        clearInterval(timer);
-        embed_document(root);
-      } else if (document.readyState == "complete") {
-        attempts++;
-        if (attempts > 200) {
-          clearInterval(timer);
-      var Bokeh = get_bokeh(root)
-      if (Bokeh == null || Bokeh.Panel == null) {
-            console.warn("Panel: ERROR: Unable to run Panel code because Bokeh or Panel library is missing");
-      } else {
-        console.warn("Panel: WARNING: Attempting to render but not all required libraries could be resolved.")
-        embed_document(root)
-      }
-        }
-      }
-    }, 25, root)
-  }
-})(window);</script>
-<pre class="text"><code>could not directly connect to Tiled using a system profile.
-  Making network connection.
-  Enter your BNL credentials now or pass an api key like catalog_kwargs={"api_key":"..."}.</code></pre>
-<div id="e6d46d4e" class="cell">
+<div id="9a39ac5a" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-fold: true</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">## Data storage and manipulation</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co">## Plotting</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="co">## Image processing</span></span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> PIL <span class="im">import</span> Image</span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="co">## Originally from rsoxs.alignment.bar_image_processing import stitch_sample</span></span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="co">## </span><span class="al">TODO</span><span class="co">: rename function to stitch_sample_bar_image?</span></span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> stitch_sample(images, step_size, y_off, from_image<span class="op">=</span><span class="va">None</span>, flip_file<span class="op">=</span><span class="va">False</span>):</span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>    <span class="kw">global</span> sample_image_axes</span>
-<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">isinstance</span>(from_image, <span class="bu">str</span>):</span>
-<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>        im_frame <span class="op">=</span> Image.<span class="bu">open</span>(from_image)</span>
-<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>        result <span class="op">=</span> np.array(im_frame)</span>
-<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> flip_file:</span>
-<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>            result <span class="op">=</span> np.flipud(result)</span>
-<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
-<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>        pixel_step <span class="op">=</span> <span class="bu">int</span>(step_size <span class="op">*</span> (<span class="dv">1760</span>) <span class="op">/</span> <span class="dv">25</span>)</span>
-<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>        pixel_overlap <span class="op">=</span> <span class="dv">2464</span> <span class="op">-</span> pixel_step</span>
-<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>        result <span class="op">=</span> images[<span class="dv">0</span>][<span class="dv">0</span>]</span>
-<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>        i <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> imageb <span class="kw">in</span> images[<span class="dv">1</span>:]:</span>
-<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>            image <span class="op">=</span> imageb[<span class="dv">0</span>]</span>
-<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>            i <span class="op">+=</span> <span class="dv">1</span></span>
-<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> y_off <span class="op">&gt;</span> <span class="dv">0</span>:</span>
-<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>                result <span class="op">=</span> np.concatenate((image[(y_off <span class="op">*</span> i) :, :], result[:<span class="op">-</span>(y_off), pixel_overlap:]), axis<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>            <span class="cf">elif</span> y_off <span class="op">&lt;</span> <span class="dv">0</span>:</span>
-<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a>                result <span class="op">=</span> np.concatenate((image[: (y_off <span class="op">*</span> i), :], result[<span class="op">-</span>(y_off):, pixel_overlap:]), axis<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a>            <span class="cf">else</span>:</span>
-<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a>                result <span class="op">=</span> np.concatenate((image[:, :], result[:, pixel_overlap:]), axis<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a>        <span class="co"># result = np.flipud(result)</span></span>
-<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a>    fig, ax <span class="op">=</span> plt.subplots()</span>
-<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a>    ax.imshow(result, extent<span class="op">=</span>[<span class="op">-</span><span class="dv">210</span>, <span class="dv">25</span>, <span class="op">-</span><span class="fl">14.5</span>, <span class="fl">14.5</span>])</span>
-<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a>    sample_image_axes <span class="op">=</span> ax</span>
-<span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a>    <span class="co">#fig.canvas.mpl_connect("button_press_event", plot_click) ## For now, want to keep simple and not do clicking here.</span></span>
-<span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a>    <span class="co">#fig.canvas.mpl_connect("key_press_event", plot_key_press)</span></span>
-<span id="cb7-43"><a href="#cb7-43" aria-hidden="true" tabindex="-1"></a>    plt.show()</span>
-<span id="cb7-44"><a href="#cb7-44" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> result</span>
-<span id="cb7-45"><a href="#cb7-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-46"><a href="#cb7-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-47"><a href="#cb7-47" aria-hidden="true" tabindex="-1"></a><span class="co">## </span><span class="al">TODO</span><span class="co">: try clicking on spots in notebook instead of RSoXS control computer</span></span>
-<span id="cb7-48"><a href="#cb7-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-49"><a href="#cb7-49" aria-hidden="true" tabindex="-1"></a><span class="co">## </span><span class="al">TODO</span><span class="co">: try running correct_bar in notebook instead of RSoXS control computer</span></span>
-<span id="cb7-50"><a href="#cb7-50" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-fold: true</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">## Data storage and manipulation</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co">## Plotting</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co">## Image processing</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> PIL <span class="im">import</span> Image</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="co">## Originally from rsoxs.alignment.bar_image_processing import stitch_sample</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co">## </span><span class="al">TODO</span><span class="co">: rename function to stitch_sample_bar_image?</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> stitch_sample(images, step_size, y_off, from_image<span class="op">=</span><span class="va">None</span>, flip_file<span class="op">=</span><span class="va">False</span>):</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>    <span class="kw">global</span> sample_image_axes</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">isinstance</span>(from_image, <span class="bu">str</span>):</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>        im_frame <span class="op">=</span> Image.<span class="bu">open</span>(from_image)</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>        result <span class="op">=</span> np.array(im_frame)</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> flip_file:</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>            result <span class="op">=</span> np.flipud(result)</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>        pixel_step <span class="op">=</span> <span class="bu">int</span>(step_size <span class="op">*</span> (<span class="dv">1760</span>) <span class="op">/</span> <span class="dv">25</span>)</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>        pixel_overlap <span class="op">=</span> <span class="dv">2464</span> <span class="op">-</span> pixel_step</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>        result <span class="op">=</span> images[<span class="dv">0</span>][<span class="dv">0</span>]</span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>        i <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> imageb <span class="kw">in</span> images[<span class="dv">1</span>:]:</span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>            image <span class="op">=</span> imageb[<span class="dv">0</span>]</span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>            i <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> y_off <span class="op">&gt;</span> <span class="dv">0</span>:</span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>                result <span class="op">=</span> np.concatenate((image[(y_off <span class="op">*</span> i) :, :], result[:<span class="op">-</span>(y_off), pixel_overlap:]), axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>            <span class="cf">elif</span> y_off <span class="op">&lt;</span> <span class="dv">0</span>:</span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>                result <span class="op">=</span> np.concatenate((image[: (y_off <span class="op">*</span> i), :], result[<span class="op">-</span>(y_off):, pixel_overlap:]), axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>            <span class="cf">else</span>:</span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>                result <span class="op">=</span> np.concatenate((image[:, :], result[:, pixel_overlap:]), axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>        <span class="co"># result = np.flipud(result)</span></span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a>    fig, ax <span class="op">=</span> plt.subplots()</span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a>    ax.imshow(result, extent<span class="op">=</span>[<span class="op">-</span><span class="dv">210</span>, <span class="dv">25</span>, <span class="op">-</span><span class="fl">14.5</span>, <span class="fl">14.5</span>])</span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a>    sample_image_axes <span class="op">=</span> ax</span>
+<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a>    <span class="co">#fig.canvas.mpl_connect("button_press_event", plot_click) ## For now, want to keep simple and not do clicking here.</span></span>
+<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a>    <span class="co">#fig.canvas.mpl_connect("key_press_event", plot_key_press)</span></span>
+<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a>    plt.show()</span>
+<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> result</span>
+<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a><span class="co">## </span><span class="al">TODO</span><span class="co">: try clicking on spots in notebook instead of RSoXS control computer</span></span>
+<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a><span class="co">## </span><span class="al">TODO</span><span class="co">: try running correct_bar in notebook instead of RSoXS control computer</span></span>
+<span id="cb5-50"><a href="#cb5-50" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<div id="97d77ebb" class="cell">
+<div id="b04dceef" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-fold: true</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>SCAN_ID <span class="op">=</span> <span class="dv">106708</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>FILE_NAME_BAR_IMAGE_EXPORT <span class="op">=</span> <span class="vs">r"BarImage_Front2</span><span class="dv">.</span><span class="vs">png"</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>FILE_PATH_BAR_IMAGE_EXPORT <span class="op">=</span> <span class="vs">r"C:</span><span class="er">\</span><span class="vs">Users</span><span class="er">\</span><span class="vs">pmk</span><span class="dv">\D</span><span class="vs">ownloads"</span></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>scan_raw <span class="op">=</span> catalog[<span class="bu">int</span>(SCAN_ID)]</span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>images <span class="op">=</span> <span class="bu">list</span>(scan_raw[<span class="st">"primary"</span>][<span class="st">"data"</span>][<span class="st">"Sample Imager Detector Area Camera_image"</span>].read())</span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>image <span class="op">=</span> stitch_sample(images, <span class="dv">25</span>, <span class="op">-</span><span class="dv">6</span>)</span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>im <span class="op">=</span> Image.fromarray(image)</span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>im.save(os.path.join(FILE_PATH_BAR_IMAGE_EXPORT, FILE_NAME_BAR_IMAGE_EXPORT))</span>
-<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| code-fold: true</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>SCAN_ID <span class="op">=</span> <span class="dv">106708</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>FILE_NAME_BAR_IMAGE_EXPORT <span class="op">=</span> <span class="vs">r"BarImage_Front2</span><span class="dv">.</span><span class="vs">png"</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>FILE_PATH_BAR_IMAGE_EXPORT <span class="op">=</span> <span class="vs">r"C:</span><span class="er">\</span><span class="vs">Users</span><span class="er">\</span><span class="vs">pmk</span><span class="dv">\D</span><span class="vs">ownloads"</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>scan_raw <span class="op">=</span> catalog[<span class="bu">int</span>(SCAN_ID)]</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>images <span class="op">=</span> <span class="bu">list</span>(scan_raw[<span class="st">"primary"</span>][<span class="st">"data"</span>][<span class="st">"Sample Imager Detector Area Camera_image"</span>].read())</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>image <span class="op">=</span> stitch_sample(images, <span class="dv">25</span>, <span class="op">-</span><span class="dv">6</span>)</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>im <span class="op">=</span> Image.fromarray(image)</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>im.save(os.path.join(FILE_PATH_BAR_IMAGE_EXPORT, FILE_NAME_BAR_IMAGE_EXPORT))</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <p><img src="../../assets/images/sample_preparation_at_beamline_cell007_out001.png" class="img-fluid"></p>
