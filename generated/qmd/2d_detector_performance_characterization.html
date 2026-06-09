@@ -81,9 +81,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-814b7d86f81bef83ceb6a6c63506e914.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-4f359156a309b9967c1c8b2c2390d78e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-814b7d86f81bef83ceb6a6c63506e914.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-6eba6ba83b4f5fbebb32bc0a0d298c6a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-d69923b251ea6a26654e8b2ef21ab751.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-6eba6ba83b4f5fbebb32bc0a0d298c6a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -621,7 +621,7 @@ window.Quarto = {
 <h1>Detector metrics and analysis</h1>
 <p>To avoid confounding metrics, the order of data processing should follow the hierarchy of measurement dependencies. Generally, most electronic performance metrics should be characterized first, as the characterization of many quantum performance metrics depends on correction of the electronic performance metrics.</p>
 <pre class="quarto"><code></code></pre>
-<div id="1b3352df" class="cell">
+<div id="4d1765f7" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
@@ -887,7 +887,7 @@ window.Quarto = {
 <h3 class="anchored" data-anchor-id="frame-rate">Frame rate</h3>
 <p><strong>Physics</strong>:</p>
 <p><strong>Calculation</strong>: Take the burst-frame dark stack. Use the camera’s internal FPGA clock to extract timestamps and calculate time difference between consecutive frames. Check for frame dropping, in which the interval suddenly increases because the computer’s USB bus could not keep up and dropped a frame; eliminate such data points. From the good datapoints, caluclate a mean/median time difference. The frame rate is equal to 1 divided by the mean time difference.</p>
-<div id="e8c0931e" class="cell">
+<div id="b8274c36" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
@@ -1100,7 +1100,7 @@ window.Quarto = {
 <pre class="quarto"><code></code></pre>
 <section id="code" class="level4">
 <h4 class="anchored" data-anchor-id="code">Code</h4>
-<div id="aacb2780" class="cell">
+<div id="70b1082e" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
@@ -1460,7 +1460,7 @@ window.Quarto = {
 <p><strong>Calculation</strong>: Visually or algorithmically define the boundaries of the Poisson shot noise regime in the PTC where the slope of the log-log plot is 1/2. Plot the shot-noise regime portion of the (<span class="math inline">\(\sigma^2_{\text{temporal}}\)</span>) vs.&nbsp;(<span class="math inline">\(S_{\text{DN}}\)</span>) data on a linear-linear scale. The y-intercept is through the origin. Perform a linear regression to find the slope with the fixed y = 0 intercept. K = 1/slope.</p>
 <p>In theory, K also could be calculated as the intercept of the log-log representation of the shot-noise regime (<span class="math inline">\(log(\sigma) = \frac{1}{2} log(S_{DN}) + log(\frac{1}{\sqrt{K}})\)</span>). However, performing the linear regression on the linear-linear data is more robust and will have less uncertainty. The linear regression assumes that uncertainties are homeoscedastic; i.e., all datapoints have equal uncertainty. Taking a logarithm would stretch the uncertainties at low signals while compressing uncertainties at higher signals, and more weight would be placed on the low-signal data points. Similarly, calculating the logarithm compress the dynamic range, which can make the analysis sensitive to rounding errors. The regression on the linear-linear data also eliminates a degree of freedom by fixing the intercept to 0 and makes the analysis more stable.</p>
 <pre class="quarto"><code></code></pre>
-<div id="82134281" class="cell">
+<div id="ecbf8933" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
@@ -1586,7 +1586,7 @@ window.Quarto = {
 <h3 class="anchored" data-anchor-id="fixed-pattern-noise">Fixed pattern noise</h3>
 <p><strong>Physics</strong>:</p>
 <pre class="quarto"><code></code></pre>
-<div id="802e7657" class="cell">
+<div id="543a465e" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
@@ -1840,7 +1840,7 @@ window.Quarto = {
 <p><strong>Calculation</strong>: Calculate a mean temporal signal and mean temporal variance for each set of replicates at a particular exposure time and temperature. Plot the variance vs.&nbsp;exposure time for every temperature set. Perform a global intercept linear regression where all lines are forced to have the same Y-intercept; this allows for a more robust calculation. The Y-intercept is the read variance, and the slope is the dark current rate. The dark noise is the dark rate multiplied by the exposure time.</p>
 <pre class="quarto"><code></code></pre>
 <pre class="quarto"><code></code></pre>
-<div id="6a8c2f15" class="cell">
+<div id="68a6c6d0" class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
