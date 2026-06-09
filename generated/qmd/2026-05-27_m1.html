@@ -408,6 +408,12 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Greateyes CCD camera</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../generated/qmd/2d_detector_performance_characterization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2D detector performance characterization</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -501,17 +507,21 @@ ul.task-list li input[type="checkbox"] {
 <p><br></p>
 <p>The pressure inside the cooling lines also was investigated, but it remained at atmospheric pressure regardless of whether or not the air guard port was being pumped. This narrows the leak to the gasket or the mirror itself.</p>
 <pre class="quarto"><code></code></pre>
-<p>For reference, a similar issue had occurred recently at the CSX beamline. In this case, water leaked at the copper gasket that directly interfaces between the water hose and the mirror. As a result, the gasket corroded and deposited contamination throughout the cooling hose and knife edge.</p>
-<p>At SST-1, the gaskets and other hardware are made from stainless steel, and DI water is used for cooling. These should minimize corrosion and other contamination. The state of these pieces of hardware will be investigated when the M1 tank is opened.</p>
 <p><br></p>
-<p>To troubleshoot further, the M1 tank must be opened. The viewports to the tank are small and discolored from radiation, so it is not easy to look inside.</p>
+<p>Further troubleshooting required the M1 tank to be opened. The viewports to the tank are small and discolored from radiation (likely radiation-induced carbon deposits), so it is not easy to look inside. However, it was found on 2026-06-01 that GV1 and GV2 are leaking into the surrounding vacuum sections. It is hypothesized that radiation in the FOE has damaged the rubber gaskets on those gate valves; although the gate valves should not receive direct beam radiation, it may be receiving significant scattered beam radiation. The M1 chamber was eventually vented after attaching turbo carts to the upstream L1 chamber and turning off the L1 ion pump. The downstream Slt:WB also was vented, and GVs 3 and 13 did not leak.</p>
+<p><br></p>
+<p>M1 was removed, and the cooling lines and air guard were disassembled for further investigation.</p>
+<p><br></p>
+<p>For reference, a similar issue had occurred recently (mid-May 2026) at the CSX beamline. Both SST-1 and CSX have stainless steel flanges, SERTO unions, and air guards, which were expected to minimize corrosion. Both beamlines had a leak through the copper gasket (likely from the water dissolving the copper). Both beamlines showed significant contamination at the leak site.In this case, water leaked at the copper gasket that directly interfaces between the water hose and the mirror. One hypothesis was that the similar timeframe of these leaks may be the result of compromised cooling water quality. However, SST-1 uses house DI water, whereas CSX uses distilled water from a chiller. In the past, CSX had used a different water/chiller system and had algae growth, but migration to their current chiller system has eliminated water contamination. CSX and many other beamlines prefer slow water flow for stable cooling, whereas SST-1 cooling lines have faster water flow.</p>
+<p><br></p>
+<pre class="quarto"><code></code></pre>
 <p><br><br></p>
 </section>
 <section id="ion-pump-testing" class="level2">
 <h2 class="anchored" data-anchor-id="ion-pump-testing">Ion pump testing</h2>
 <p>With the M1 tank pumped to ~3.9e-6 Torr by 2026-05-29 morning, it was attempted to turn on the ion pump. However, the pressure quickly rose into the e-4’s/e-3’s, so the ion pump was immediately turned off.</p>
 <p><br></p>
-<p>The M1 tank will be pumped down using the turbo carts over the weekend, and it will be attempted again to turn on the ion pump during the next week.</p>
+<p>The M1 tank will be pumped down using the turbo carts over the weekend, and it will be attempted again to turn on the ion pump during the next week (2026-06-01).</p>
 <p>The M1 ion pump is located in the center of a hexapod assembly that is used to move the M1 positions. Thus, pump repair/replacement would require the entire hexapod assembly to be removed. By testing the ion pump sooner, any repairs can be coordinated early on.</p>
 <p><img src="../../assets/images/2026-05-27_m1_ion_pump_hexapod.jpg" class="img-fluid"></p>
 <p><br><br><br><br></p>
